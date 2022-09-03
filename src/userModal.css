@@ -1,0 +1,65 @@
+.userModal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  overflow: none;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inofContainer {
+  height: max-content;
+  width: 500px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  border-radius: 20px;
+}
+.inputHolder {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.inputHolder > span {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+.input {
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  width: 70%;
+}
+.editButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.button {
+  font-size: 22px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  padding: 5px 0px;
+  user-select: none;
+  cursor: pointer;
+}
+.save {
+  background-color: #4dd637;
+}
+.cancel {
+  background-color: #e21717;
+}

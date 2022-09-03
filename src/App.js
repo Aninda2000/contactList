@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { getAllUsersAPI } from "./apiCallHelper";
+import "./App.css";
+import AddUserModal from "./components/AddUserModal";
+import Contactcard from "./components/Contactcard";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    // getting all users
+    getAllUsersAPI().then((res) => setUsers(res));
+  }, []);
+  const [users, setUsers] = useState([]);
+  const [addUserModal, setAddUserModal] = useState(false);
+  const deleteUser = (id) => {
+    const filterUsers = users.filter((user) => user.id !== id);
+    setUsers(filterUsers);
+  };
+  // updating user
+  const updateUser = (data) => {
+    const copy = [...users];
+    copy[data.id - 1] = data;
+    setUsers(copy);
+  };
+  // saving new user
+  const saveUserHelper = (data) => {
+    console.log(data);
+    setUsers([...users, data]);
+    setAddUserModal(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="contactsListContainer">
+        {users.length > 0 &&
+          users.map((user) => (
+            <Contactcard
+              key={user.id}
+              user={user}
+              deleteUser={(id) => deleteUser(id)}
+              updateUser={(data) => updateUser(data)}
+            />
+          ))}
+      </div>
+      {addUserModal && (
+        <AddUserModal
+          close={() => setAddUserModal(false)}
+          saveUser={(data) => saveUserHelper(data)}
+        />
+      )}
+      {/* ADD BUTTON */}
+      {!addUserModal && (
+        <div className="addButton" onClick={() => setAddUserModal(true)}>
+          <span>+</span>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default App;

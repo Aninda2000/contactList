@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contactsListContainer {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+/* ContactCard */
+.contactContainer {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: max-content;
+  width: 400px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 0 15px;
+  margin-bottom: 20px;
+}
+.contactContainer:hover {
+  cursor: pointer;
+}
+.contactAvatar {
+  aspect-ratio: 1/1;
+  height: 80px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 50%;
+}
+.contactAvatar > span {
+  font-size: 25px;
+  font-weight: 600;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.userInfoContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+.userFullname {
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 600;
+}
+.infoHolder {
+  display: flex;
+  width: 100%;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: center;
+}
+.infoIcon {
+  font-size: 22px;
+}
+.infoText {
+  text-transform: lowercase;
+  font-size: 18px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+}
+.buttonIcon {
+  color: red;
+  font-size: 20px;
+  transition: transform 200ms ease-in-out;
+}
+.buttonIcon:hover {
+  transform: scale(1.2);
+}
+.buttonIcon:nth-child(2) {
+  color: black;
+}
+/* Add button  */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: #000;
+  height: 60px !important;
+  width: 60px !important;
+  height: max-content;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  user-select: none;
+  cursor: pointer;
+}
+.addButton > span {
+  margin-top: -10px;
 }
